@@ -1,17 +1,151 @@
----
 
 ---
+const personajes = [
+  {
+    nombre: "Satoru Gojo",
+    descripcion:
+      "Uno de los hechiceros más poderosos. Es conocido por sus Seis Ojos y el poder de su Técnica de Maldición Ilimitada.",
+  },
+  {
+    nombre: "Yuji Itadori",
+    descripcion:
+      "El protagonista de la historia. Tiene una fuerza física increíble y se convierte en el recipiente de Ryomen Sukuna.",
+  },
+  {
+    nombre: "Megumi Fushiguro",
+    descripcion:
+      "Un hechicero que utiliza la Técnica de las Diez Sombras para invocar diferentes shikigamis durante los combates.",
+  },
+  {
+    nombre: "Yūta Okkotsu",
+    descripcion:
+      "El pinshi yuta es mi personaje favorito, la riatota en persona el brother ya quisiera yo tener a alguien asi enamorado como el tiene a la rika",
+  },
+  {
+    nombre: "Ryomen Sukuna",
+    descripcion:
+      "Conocido como el Rey de las Maldiciones. Es una de las figuras más peligrosas y poderosas de la historia.",
+  },
+];
+---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>My Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Jujutsu Kaisen | Exivius117</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Jujutsu Kaisen</h1>
+      <p>Personajes más perritos del anime</p>
+    </header>
+
+    <main>
+      <section class="presentacion">
+        <h2>Creado por Exivius117</h2>
+        <p>Leonardo Lopez</p>
+        <p>
+          Una pequeña página dedicada a algunos de los personajes más
+          interesantes de Jujutsu Kaisen.
+        </p>
+      </section>
+
+      <section>
+        <h2>Personajes</h2>
+
+        <div class="personajes">
+          {personajes.map((personaje) => (
+            <article class="card">
+              <h3>{personaje.nombre}</h3>
+              <p>{personaje.descripcion}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Proyecto realizado por Exivius117 — Leonardo Lopez</p>
+    </footer>
+  </body>
 </html>
+
+<style>
+  :global(body) {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+  }
+
+  header {
+    text-align: center;
+    padding: 60px 20px;
+    background: #1d1d1d;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 3rem;
+  }
+
+  header p {
+    color: #aaa;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+
+  .presentacion {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .presentacion h2 {
+    margin-bottom: 5px;
+  }
+
+  .presentacion p {
+    color: #bbb;
+  }
+
+  section > h2 {
+    margin-bottom: 25px;
+  }
+
+  .personajes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    padding: 25px;
+    background: #222;
+    border-radius: 12px;
+    border: 1px solid #333;
+  }
+
+  .card h3 {
+    margin-top: 0;
+    color: #c084fc;
+  }
+
+  .card p {
+    color: #ccc;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    border-top: 1px solid #333;
+  }
+</style>
+```
