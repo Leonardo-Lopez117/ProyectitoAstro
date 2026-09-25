@@ -1,6 +1,7 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'mi primero post de blog'
-puyDate: 24/09/2026
+pubDate: 24/09/2026
 description: 'este es mi primer post en mi nuevo blog de astro'
 author: 'Leonardo Gael Lopez Serratos (Exivius117)'
 image:
@@ -9,9 +10,7 @@ image:
 tags: ["astro", "blogging", "learning in public"]
 ---
 
-# My primer posteo de blog
 
-Published on: 24/09/2026
 
 Bienvenido a mi _nuevo blog_ acerca de aprender Astro! aqui, yo voy a compartir mi aprendizaje en este viaje en el que construi una nueva website
 
