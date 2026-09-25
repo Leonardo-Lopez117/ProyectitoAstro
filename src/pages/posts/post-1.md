@@ -1,15 +1,19 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'mi primero post de blog'
-pubDate: 24/09/2026
-description: 'este es mi primer post en mi nuevo blog de astro'
-author: 'Leonardo Gael Lopez Serratos (Exivius117)'
-image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging", "learning in public"]
----
+title: "Mi primer post"
+pubDate: 2026-09-24
+description: "Este es mi primer post en mi nuevo blog de Astro."
+author: "Leonardo Gael Lopez Serratos (Exivius117)"
 
+image:
+  url: "https://ejemplo.com/perrito.jpg"
+  alt: "Un perrito jugando"
+
+tags:
+  - astro
+  - blogging
+  - learning in public
+---
 
 
 Bienvenido a mi _nuevo blog_ acerca de aprender Astro! aqui, yo voy a compartir mi aprendizaje en este viaje en el que construi una nueva website
