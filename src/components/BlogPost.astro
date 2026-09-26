@@ -1,5 +1,19 @@
 ---
-const{ title, url} = Astro.props;
+const { title, url, image, description, pubDate, tags = [] } = Astro.props;
 ---
 
-<li><a href={url}>{title}</a></li>
+<li class="post-card">
+    <a href={url} class="post-card-link">
+        {image && <img src={image.url} alt={image.alt} class="post-card-img" />}
+        <div class="post-card-body">
+            {pubDate && <span class="post-card-date">{pubDate.toString().slice(0, 10)}</span>}
+            <h3>{title}</h3>
+            {description && <p class="post-card-desc">{description}</p>}
+            {tags.length > 0 && (
+                <div class="post-card-tags">
+                    {tags.map((tag: string) => <span class="mini-tag">{tag}</span>)}
+                </div>
+            )}
+        </div>
+    </a>
+</li>

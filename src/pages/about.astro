@@ -30,18 +30,45 @@ const textCase = "uppercase";
 		<title>{pageTitle}</title>
         <style define:vars={{skillColor, fontWeight, textCase}}>
             h1 {
-                color: purple;
+                color: var(--accent-2);
                 font-size: 4rem;
             }
+            .about-card {
+                background: var(--bg-elevated);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 1.75rem 2rem;
+                box-shadow: var(--shadow-glow);
+            }
+            .about-card ul {
+                padding-left: 1.3rem;
+                line-height: 1.7;
+            }
             .skill {
+                display: inline-block;
                 color: var(--skillColor);
                 font-weight: var(--fontWeight);
                 text-transform: var(--textCase);
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: 999px;
+                padding: 0.3em 0.9em;
+                margin: 0.25em 0.35em 0.25em 0;
+                font-size: 0.85rem;
+            }
+            .skills-list {
+                list-style: none;
+                padding: 0;
+                margin: 0.5rem 0 1rem;
+            }
+            .status-line {
+                color: var(--text-muted);
             }
             </style>
         </head>
 	<body>
         <BaseLayout pageTitle={pageTitle}>
+        <div class="about-card">
         <h2>... and my new Astro site!</h2>
 
         <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
@@ -57,16 +84,16 @@ const textCase = "uppercase";
                 }
             </ul>
         <p>My skills are:</p>
-        <ul>
+        <ul class="skills-list">
             {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
 
-        {happy && <p>I am happy to be learning Astro!</p>}
+        {happy && <p class="status-line">I am happy to be learning Astro!</p>}
 
-        {finished && <p>I finished this tutorial!</p>}
+        {finished && <p class="status-line">I finished this tutorial!</p>}
 
-        {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
+        {goal === 3 ? <p class="status-line">My goal is to finish in 3 days.</p> : <p class="status-line">My goal is not 3 days.</p>}
+        </div>
         </BaseLayout>
 	</body>
 </html>

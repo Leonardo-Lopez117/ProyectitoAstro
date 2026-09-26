@@ -5,11 +5,31 @@ import Social from '../components/Social.astro';
 <style>
     footer {
         display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+    }
+    .footer-socials {
+        display: flex;
         gap: 1rem;
-        margin-top: 2rem;
+    }
+    .footer-note {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.78rem;
+        line-height: 1.5;
     }
 </style>
 <footer>
-    <Social platform="github" username="Leonardo-Lopez117" />
-    <Social platform="instagram" username="leonardolopez8201" />
+    <div class="footer-socials">
+        <Social platform="github" username="Leonardo-Lopez117" />
+        <Social platform="instagram" username="leonardolopez8201" />
+    </div>
+    <p class="footer-note">
+        Jujutsu Kaisen (呪術廻戦) es obra de Gege Akutami,
+        publicada por Shueisha y animada por MAPPA. Las imágenes de portada pertenecen a sus respectivos autores
+        y se usan aquí solo con fines ilustrativos / educativos.
+    </p>
 </footer>

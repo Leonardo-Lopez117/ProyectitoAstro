@@ -1,9 +1,108 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
-const pageTitle = "Home Page";
+const pageTitle = "Jujutsu Kaisen Blog";
 ---
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
-	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+	<section class="hero">
+		<div class="hero-text">
+			<p class="eyebrow">Blog personal · práctica de Astro</p>
+			<h2>Bienvenido a mi rincón sobre <span class="accent">Jujutsu Kaisen</span></h2>
+			<p class="lede">
+				Aquí voy dejando mis reseñas de la serie, temporada por temporada: lo que sentí,
+				lo que más me gustó y lo que me dejó pensando después de cada tanda de episodios.
+			</p>
+			<div class="greeting-wrap">
+				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+			</div>
+		</div>
+		<div class="hero-art">
+			<img
+				src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg"
+				alt="Póster oficial de Jujutsu Kaisen"
+			/>
+		</div>
+	</section>
 </BaseLayout>
+
+<style>
+	.hero {
+		display: flex;
+		align-items: center;
+		gap: 2.5rem;
+		flex-wrap: wrap;
+		background: var(--bg-elevated);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 2rem;
+		box-shadow: var(--shadow-glow);
+	}
+
+	.hero-text {
+		flex: 1 1 320px;
+	}
+
+	.eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--accent);
+		font-weight: 700;
+		font-size: 0.8rem;
+		margin: 0 0 0.5rem;
+	}
+
+	.hero h2 {
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+		line-height: 1.1;
+		margin: 0.2rem 0 1rem;
+	}
+
+	.accent {
+		color: var(--accent);
+		text-shadow: 0 0 18px var(--accent-soft);
+	}
+
+	.lede {
+		color: var(--text-muted);
+		font-size: 1.05rem;
+		max-width: 46ch;
+		margin-bottom: 1.25rem;
+	}
+
+	.hero-art {
+		flex: 0 1 280px;
+	}
+
+	.hero-art img {
+		width: 100%;
+		max-width: 300px;
+		display: block;
+		margin: 0 auto;
+		border-radius: var(--radius);
+		box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.55);
+	}
+
+	.greeting-wrap :global(h3) {
+		font-family: var(--font-body);
+		font-weight: 600;
+		color: var(--text);
+		margin-bottom: 0.5rem;
+	}
+
+	.greeting-wrap :global(button) {
+		background: var(--accent);
+		color: #fff;
+		border: none;
+		padding: 0.6rem 1.3rem;
+		border-radius: 999px;
+		font-weight: 600;
+		font-family: var(--font-body);
+		cursor: pointer;
+		box-shadow: var(--shadow-glow);
+		transition: filter 0.2s ease;
+	}
+
+	.greeting-wrap :global(button:hover) {
+		filter: brightness(1.12);
+	}
+</style>

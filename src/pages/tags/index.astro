@@ -2,9 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
 const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
-const pageTitle = "Tag Index";
+const pageTitle = "Índice de etiquetas";
 ---
 <BaseLayout pageTitle={pageTitle}>
+    <p class="page-lede">Todas las etiquetas que uso en el blog, agrupadas aquí.</p>
     <div class="tags">
         {tags.map((tag) => (
             <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
@@ -12,21 +13,13 @@ const pageTitle = "Tag Index";
     </div>
 </BaseLayout>
   <style>
-    a {
-        color: #00539F;
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
+    .page-lede {
+        color: var(--text-muted);
+        font-size: 1.05rem;
     }
 
     .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: .5em;
-        padding: .5em 1em;
-        font-size: 1.15em;
-        background-color: #F8FCFD;
+        font-size: 1.05em;
+        padding: 0.6em 1.2em;
     }
     </style>

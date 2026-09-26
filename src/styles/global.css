@@ -1,34 +1,152 @@
+/* ============================================
+   Jujutsu Kaisen theme — design tokens
+   ============================================ */
+:root {
+  --bg: #f5eef1;
+  --bg-elevated: #ffffff;
+  --bg-card: #fdf8fa;
+  --text: #1c1420;
+  --text-muted: #6b5b66;
+  --border: #e7d9e1;
+  --accent: #9c1c3a;
+  --accent-2: #5b21b6;
+  --accent-soft: #f1d9e0;
+  --header-bg: #14101a;
+  --header-text: #f4eef5;
+  --shadow-glow: 0 10px 30px -14px rgba(156, 28, 58, 0.35);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font-display: 'Bebas Neue', 'Poppins', sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+html.dark {
+  --bg: #08070c;
+  --bg-elevated: #121016;
+  --bg-card: #16131c;
+  --text: #f3eef7;
+  --text-muted: #a89db2;
+  --border: #2b2432;
+  --accent: #ef233c;
+  --accent-2: #8b5cf6;
+  --accent-soft: rgba(239, 35, 60, 0.14);
+  --header-bg: #050308;
+  --header-text: #f3eef7;
+  --shadow-glow: 0 10px 40px -8px rgba(239, 35, 60, 0.45);
+}
+
 html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 12% 15%, var(--accent-soft), transparent 42%),
+    radial-gradient(circle at 88% 0%, rgba(139, 92, 246, 0.14), transparent 45%);
+  background-attachment: fixed;
+  font-family: var(--font-body);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
+  max-width: 68rem;
+  padding: 1.25rem;
+  line-height: 1.6;
+  color: var(--text);
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
+a {
+  color: var(--accent);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+/* page heading rendered by BaseLayout */
+body > h1 {
+  margin: 0.25rem 0 1.5rem;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+}
+
+body > h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  margin-top: 0.6rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+}
+
+p {
+  color: var(--text);
+}
+
+/* ============================================
+   Header / nav
+   ============================================ */
+
+header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.25rem;
+  box-shadow: var(--shadow-glow);
+  margin-bottom: 1.5rem;
+}
+
+.site-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--header-text);
+}
+
+.brand-kanji {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 14px var(--accent);
+}
+
+.brand-text {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 /* nav styles */
 
 .menu {
-  background-color: #0d0950;
+  background-color: var(--accent);
   border: none;
+  border-radius: var(--radius-sm);
   color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  cursor: pointer;
 }
 
 .nav-links {
@@ -42,47 +160,26 @@ h1 {
   text-align: center;
   padding: 10px 0;
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #0d0950;
+  color: var(--header-text);
+  position: relative;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: #ff9776;
+  color: var(--accent);
 }
 
 :has(.menu[aria-expanded="true"]) .nav-links {
   display: unset;
 }
 
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
-}
-
-.dark .menu {
-  background-color: #fff;
-  color: #000;
-}
-
-.dark .nav-links a:hover,
-.dark .nav-links a:focus {
-  color: #0d0950;
-}
-
-.dark .nav-links a {
-  color: #fff;
-}
-
-.dark a {
-  color: #ff9776;
-}
-
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
+    margin-left: 2em;
     display: block;
     position: static;
     width: auto;
@@ -91,10 +188,187 @@ html.dark {
 
   .nav-links a {
     display: inline-block;
-    padding: 15px 20px;
+    padding: 8px 16px;
   }
 
   .menu {
     display: none;
   }
+}
+
+/* ============================================
+   Tags (shared: post pages + /tags routes)
+   ============================================ */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+}
+
+.tag {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4em 1em;
+  font-size: 0.9em;
+  font-weight: 600;
+  background-color: var(--bg-card);
+}
+
+.tag a {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+.tag a:hover {
+  text-decoration: underline;
+}
+
+.mini-tag {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2em 0.75em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+}
+
+/* ============================================
+   Post cards (blog listing + tag listing)
+   ============================================ */
+
+.post-grid {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.post-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+.post-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-card-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-card-body {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.post-card-body h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.post-card-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.post-card-date {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.post-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+/* ============================================
+   Article (MarkdownPostLayout) prose
+   ============================================ */
+
+.post-content {
+  margin-top: 1.5rem;
+}
+
+.post-content h2 {
+  font-size: 1.6rem;
+  margin: 2rem 0 0.75rem;
+  color: var(--accent);
+}
+
+.post-content h3 {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.post-content p {
+  margin: 0.75rem 0;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.3rem;
+  line-height: 1.7;
+}
+
+.post-content li {
+  margin: 0.35rem 0;
+}
+
+.post-content a {
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+}
+
+.post-content code {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+  font-size: 0.9em;
+}
+
+.post-content strong {
+  color: var(--text);
 }

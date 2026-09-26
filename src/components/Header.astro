@@ -5,17 +5,17 @@ import Navigation from './Navigation.astro';
 ---
 
 <header>
-    <div>
-        <ThemeIcon />
-        <Menu/>
+    <div class="site-bar">
+        <a href="/" class="brand">
+            <span class="brand-kanji">呪術廻戦</span>
+            <span class="brand-text">Cursed Blog</span>
+        </a>
+        <div class="header-controls">
+            <ThemeIcon />
+            <Menu/>
+        </div>
     </div>
     <nav>
         <Navigation />
     </nav>
-    <style>
-        div {
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
 </header>
